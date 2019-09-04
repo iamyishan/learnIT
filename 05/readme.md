@@ -65,9 +65,9 @@
 连接：
 
 ~~~shell
-#在连接MongoDB前确保启动MongoDB服务
+#MongoDB安装目录的bin目录执行mongod,启动MongoDB服务
 mongod
-#只需要在MongoDB安装目录的bin目录下执行mongo.exe即可。
+#配置环境变量后，任何地方输入mongo就连上MongoDB的数据库了，否则只能在MongoDB安装目录的bin目录下执行mongo才行
 mongo
 ~~~
 
@@ -80,7 +80,7 @@ exit
 
 #### 2.6基本命令
 
-​	以下命令的前提是连接上数据库，才可以执行
+​	**注意：**以下命令的前提是连接上数据库，输入`mongo`才可以执行
 
 - `show dbs`
 
