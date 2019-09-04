@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>在浏览器中使用art-template</title>
+</head>
+<body>
+
+	<!-- 注意：在浏览器中需要引用lib/template-web.js文件
+         强调：模板引擎不关系你的字符串内容，只关心自己能认识的模板标记语法，例如{{}}语法被称之为mustache语法
+	 -->
+  <script src="node_modules/art-template/lib/template-web.js"></script>
+  
+  <script type="text/template" id="tpl">
+  	大家好，我叫：{{ name }}
+  	我今年{{ age }}岁
+  	我来自{{ province }}
+  	我喜欢：{{each hobbies}} {{ $value }} {{/each}}
+  </script>
+
+  <script>
+  	var ret=template('tpl',{
+  		name:'Jack',
+  		age:18,
+  		province:'重庆市',
+  		hobbies:['写代码','唱歌','打游戏']
+  	})
+  	console.log(ret)
+  </script>
+</body>
+</html>
