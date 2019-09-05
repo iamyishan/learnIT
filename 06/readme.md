@@ -40,5 +40,44 @@
 
 2. 模块中的路径标识就是相对于当前文件模块，**不受执行 node 命令所处路径影响**。
 
-​      
+### 四、在express配置使用`express-session`插件
+
+|参考文档：|
+
+安装：
+
+~~~shell
+npm install express-session
+~~~
+
+配置：
+
+~~~shell
+app.use(session({
+  // 配置加密字符串，它会在原有加密基础之上和这个字符串拼起来去加密
+  // 目的是为了增加安全性，防止客户端恶意伪造
+  secret: 'itcast',
+  resave: false,
+  saveUninitialized: false // 无论你是否使用 Session ，我都默认直接给你分配一把钥匙
+}))
+~~~
+
+使用：
+
+~~~shell
+#添加session数据
+req.session.foo='bar'
+#获取session数据
+req.session.foo
+~~~
+
+提示：默认session数据是内存存储的，服务器一旦重启就会丢失，真正的生产环境会把session进行持久化存储。
+
+
+
+
+
+
+
+
 
